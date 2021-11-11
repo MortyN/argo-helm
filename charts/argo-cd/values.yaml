@@ -595,7 +595,7 @@ redis:
       #   memory: 32Mi
     service:
       # -- Metrics service type
-      type: NodePort
+      type: ClusterIP
       # -- Metrics service clusterIP. `None` makes a "headless service" (no virtual IP)
       clusterIP: None
       # -- Metrics service annotations
@@ -812,7 +812,7 @@ server:
     # -- Server service labels
     labels: {}
     # -- Server service type
-    type: NodePort
+    type: ClusterIP
     # -- Server service http port for NodePort service type (only if `server.service.type` is set to "NodePort")
     nodePortHttp: 30080
     # -- Server service https port for NodePort service type (only if `server.service.type` is set to "NodePort")
@@ -949,7 +949,7 @@ server:
       ## are running. Instance mode needs type NodePort, IP mode needs type
       ## ClusterIP
       ## Ref: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/how-it-works/#ingress-traffic
-      serviceType: NodePort
+      serviceType: ClusterIP
       # -- Backend protocol version for the AWS ALB gRPC service
       ## This tells AWS to send traffic from the ALB using HTTP2. Can use gRPC as well if you want to leverage gRPC specific features
       backendProtocolVersion: HTTP2
